@@ -53,6 +53,7 @@ int main (int argc, char ** argv) {
 	password_length = 8;		/* Default value for password length */
 	n_passwords = 10;			/* Default value for number of pws to generate */
 
+	printf("seed: %ld\n", pw_random_number(1000));
     gettimeofday (&systime, &tz); /* Read clock. */
 	srand48 (systime.tv_usec);    /* Set random seed. */
 

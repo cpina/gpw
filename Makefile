@@ -9,7 +9,10 @@ all : gpw loadtris
 	echo gpw created, can delete loadtris
 
 gpw : gpw.o
-	$(COMPILER) $(DEBUGARGS) -o gpw gpw.o
+	$(COMPILER) $(DEBUGARGS) -o gpw gpw.o randnum.o
+
+randnum.o: randnum.c
+	$(COMPILER) $(DEBUGARGS) -o randnum.o -c randnum.c
 
 trigram.h : loadtris
 	./loadtris /usr/dict/words | sed "s/, }/}/" > trigram.h
@@ -24,4 +27,4 @@ loadtris.o : loadtris.c
 	$(COMPILER) $(DEBUGARGS) -o loadtris.o -c loadtris.c
 
 clean : 
-	rm gpw loadtris loadtris.o gpw.o # trigram.h
+	rm gpw loadtris loadtris.o gpw.o randnum.o # trigram.h
