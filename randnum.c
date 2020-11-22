@@ -7,6 +7,8 @@
  * License.
  */
 
+ /** This file is from pwgen package, adapted for gpw */
+
 #include <stdio.h>
 #include <unistd.h>
 #include <stdlib.h>
@@ -41,10 +43,10 @@ static int get_random_fd()
  * Generate a random number n, where 0 <= n < max_num, using
  * /dev/urandom if possible.
  */
-int pw_random_number(max_num)
-	int max_num;
+long int pw_random_number(max_num)
+	long int max_num;
 {
-	unsigned int rand_num;
+	long int rand_num;
 	int i, fd = get_random_fd();
 	int lose_counter = 0, nbytes = sizeof(rand_num);
 	char *cp = (char *) &rand_num;

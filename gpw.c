@@ -35,6 +35,7 @@
 /* #include <bsd/sys/time.h> */
 /* following for BSD */
 #include <sys/time.h>
+#include <limits.h>
 
 int main (int argc, char ** argv) {
 	int password_length;		/* how long should each password be */
@@ -53,9 +54,7 @@ int main (int argc, char ** argv) {
 	password_length = 8;		/* Default value for password length */
 	n_passwords = 10;			/* Default value for number of pws to generate */
 
-	printf("seed: %ld\n", pw_random_number(1000));
-    gettimeofday (&systime, &tz); /* Read clock. */
-	srand48 (systime.tv_usec);    /* Set random seed. */
+	srand48 (pw_random_number(LONG_MAX));    /* Set random seed. */
 
 	if (argc > 1) {				/* If args are given, convert to numbers. */
 		n_passwords = atoi (&argv[1][0]);
