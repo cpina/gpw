@@ -1,0 +1,79 @@
+gpw (0.0.19940601-9) unstable; urgency=medium
+
+  * Package revamped for current times.
+    (closes: #800266)
+  * Applied suggested patch to avoid inconsistent bi- and trigrams
+    concatenations.
+    (closes: #651510)
+
+ -- Francesco Paolo Lovergine <frankie@debian.org>  Sun, 06 Mar 2016 11:48:14 +0100
+
+gpw (0.0.19940601-8.1) unstable; urgency=medium
+
+  * Non-maintainer upload.
+  * Build-depend on wamerican instead of wenglish.  Thanks to Matt Kraai
+    for the patch.  Closes: #355076.
+
+ -- Matej Vela <vela@debian.org>  Fri, 10 Mar 2006 15:25:27 +0100
+
+gpw (0.0.19940601-8) unstable; urgency=low
+
+  * Policy updated.
+  * Copyright file revised.
+  * Typo in changelog.
+
+ -- Francesco Paolo Lovergine <frankie@debian.org>  Wed, 18 Dec 2002 12:40:22 +0100
+
+gpw (0.0.19940601-7) unstable; urgency=low
+
+  * Force the use of american-english dictionary in Makefile.Debian,
+    using /usr/share/dict/american-english instead of words.
+
+ -- Francesco Paolo Lovergine <frankie@debian.org>  Wed,  9 Oct 2002 14:36:55 +0200
+
+gpw (0.0.19940601-6) unstable; urgency=low
+
+  * Limits password_length to the range [4..99]
+    (Closes: #137865)
+
+ -- Francesco Paolo Lovergine <frankie@debian.org>  Mon, 11 Mar 2002 17:09:10 +0100
+
+gpw (0.0.19940601-5) unstable; urgency=high
+
+  * Changed make destination dir in rules files. The old one is incorrect
+    with current version of dhelp.
+    (Closes: #128806)
+
+ -- Francesco Paolo Lovergine <frankie@debian.org>  Mon, 14 Jan 2002 13:03:20 +0100
+
+gpw (0.0.19940601-4) unstable; urgency=low
+
+  * Rules file updated to current debhelper version.
+
+ -- Francesco Paolo Lovergine <frankie@debian.org>  Wed,  9 Jan 2002 10:50:06 +0100
+
+gpw (0.0.19940601-3) unstable; urgency=low
+
+  * Set correct section in gpw.1 man file.
+
+ -- Francesco Paolo Lovergine <frankie@debian.org>  Fri, 24 Aug 2001 15:27:45 +0200
+
+gpw (0.0.19940601-2) unstable; urgency=low
+
+  * Addeded Build-Depends: wenglish, debhelper in pkg control file.
+    Policy standard updated as required by latest lintian.
+    (Closes: #99648)
+
+ -- Francesco Paolo Lovergine <frankie@debian.org>  Sat,  2 Jun 2001 13:32:54 +0200
+
+gpw (0.0.19940601-1) unstable; urgency=low
+
+  * Initial Release.
+  * A Debian Makefile has been written
+  * Some syntax error which generate warnings with GCC have been corrected
+
+ -- Francesco Paolo Lovergine <frankie@debian.org>  Wed, 30 May 2001 19:29:37 +0200
+
+Local variables:
+mode: debian-changelog
+End:

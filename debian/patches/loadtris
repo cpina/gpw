@@ -1,0 +1,48 @@
+Description: Fixes bi- and trigrams continuation
+Author: Michael Stummvoll <michael@stummi.org>
+Bug: #651510
+Reviewed-by: Francesco Paolo Lovergine <frankie@debian.org>
+Last-Update: 2016-03-06
+---
+This patch header follows DEP-3: http://dep.debian.net/deps/dep3/
+Index: gpw-0.0.19940601/loadtris.c
+===================================================================
+--- gpw-0.0.19940601.orig/loadtris.c	2016-03-06 13:12:42.665014737 +0100
++++ gpw-0.0.19940601/loadtris.c	2016-03-06 13:12:42.661014718 +0100
+@@ -20,6 +20,28 @@
+ 
+ FILE *fp;
+ 
++void checktris() {
++	int c1, c2, c3;
++	for(c1=0; c1<26; c1++) {
++		for(c2=0; c2<26; c2++) {
++			int hastris = 0;
++			for(c3=0; c3<26; c3++) {
++				if(tris[c1][c2][c3]) {
++					hastris = 1;
++					break;
++				}
++			}
++			if(!hastris) {				/* if [c1][c2] has no tris... */
++				duos[c1][c2] = 0; 		/* ... do not use the duo ...*/
++				for(c3=0; c3<26; c3++) {	/* ... and don't use tris */
++					sigma-=tris[c3][c1][c2];/*     which are ending */
++					tris[c3][c1][c2] = 0;	/*     on [c1][c2] ...*/
++				}
++			}
++		}
++	}
++}
++
+ int main (int argc, char ** argv) {
+ 	char buf[100];
+ 	int j;
+@@ -89,6 +111,7 @@
+ 	}							    /* for argno */
+ 
+ 	if (nfiles) {				    /* find any input? */
++		checktris();
+ 		printf ("/* BEGIN INCLUDE FILE .. trigram.h */\n"); /* Multics style */
+ 		printf ("\n");
+ 		printf ("const long sigma = %ld;\n", sigma);

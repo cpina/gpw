@@ -1,0 +1,21 @@
+Source: gpw
+Section: utils
+Priority: optional
+Maintainer: Francesco Paolo Lovergine <frankie@debian.org>
+Build-Depends: debhelper (>=9), wamerican
+Standards-Version: 3.9.7
+Homepage: http://www.multicians.org/thvv/tvvtools.html
+
+Package: gpw
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: Trigraph Password Generator
+ This package generates pronounceable passwords. It uses the statistics of
+ three-letter combinations (trigraphs) taken from whatever dictionaries you
+ feed it.
+ .
+ Thus pronounceability may differ from language to language. Based
+ on the ideas in Morrie Gasser's password generator for Multics, and Dan
+ Edwards's generator for CTSS.  FIPS Standard 181 describes a similar
+ digraph-based generator, derived from Gasser's.
+

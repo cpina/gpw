@@ -1,0 +1,32 @@
+Fssword Generator
+ 
+This password generator gives you a list of ten
+"pronounceable" passwords. It is modeled after Morrie
+Gasser's original generator described in
+ 
+   * Gasser, M., A Random Word Generator for Pronouncable
+     Passwords, MTR-3006, The Mitre Corporation, Bedford, MA
+     01730, ESD-TR-75-97, HQ Electronic Systems Division,
+     Hanscom AFB, MA 01731. NTIS AD A 017676.
+ 
+except that Morrie's used a second-order approximation to
+English and this generator uses a third-order approximation.
+A descendant of Gasser's generator was added to the Multics
+operating system by Project Guardian in the mid 70s, and I
+believe Digital's VMS added a similar feature in the 80s.  FIPS
+Standard 181 describes a similar digraph-based generator,
+derived from Gasser's.or details on gpw go to
+
+The first digraph-based password generator I know of was written
+by Daniel J. Edwards about 1965 for MIT's CTSS timesharing
+system.
+ 
+Understand that the passwords produced by this generator are
+only as "strong" as the initial source of randomness. Therefore,
+the best way to use this generator is to take its output and
+modify it in ways known only to you.  Make some letters capital,
+or insert punctuation and numbers.
+
+http://www.multicians.org/thvv/gpw.html
+
+

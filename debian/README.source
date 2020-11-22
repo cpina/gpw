@@ -1,0 +1,11 @@
+gpw for Debian
+--------------
+
+The original program source are still distributed in non-aggregated form by
+the author. At the time of first packaging, when I was young and silly, I 
+created a fake tarball collecting together all required stuff and my own
+little changes to the build makefile and introduced a conventional versioning.
+After 14 years I found quite pointless trying to change that in better terms.
+
+ -- Francesco Paolo Lovergine <frankie@debian.org>  Sun, 06 Mar 2016 11:35:18 +0100
+
