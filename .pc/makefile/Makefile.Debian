@@ -1,0 +1,39 @@
+# Makefile for password generator under Debian GNU/Linux
+#
+
+DEBUGARGS = -g 
+COMPILER = gcc -Wall -O2
+
+# Edited for Debian GNU/Linux
+DESTDIR=
+BIN=$(DESTDIR)/usr/bin
+
+all : gpw loadtris
+	echo gpw created, can delete loadtris
+
+gpw : gpw.o
+	$(COMPILER) $(DEBUGARGS) -o gpw gpw.o
+
+trigram.h : loadtris
+	./loadtris /usr/share/dict/words | sed "s/, }/}/" > trigram.h
+
+gpw.o : gpw.c trigram.h
+	$(COMPILER) $(DEBUGARGS) -o gpw.o -c gpw.c
+
+loadtris : loadtris.o
+	$(COMPILER) $(DEBUGARGS) -o loadtris loadtris.o
+
+loadtris.o : loadtris.c
+	$(COMPILER) $(DEBUGARGS) -o loadtris.o -c loadtris.c
+
+clean : 
+	rm -f gpw loadtris loadtris.o gpw.o trigram.h
+
+
+
+# Modified for Debian GNU/Linux
+
+install: 
+	install -d $(DESTDIR) $(BIN)
+	install -m 755 ./gpw $(BIN)
+
