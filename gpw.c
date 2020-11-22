@@ -13,11 +13,6 @@
    and looking for real words in its output.. they are very rare, on the
    order of one in a thousand.
 
-   This program uses "drand48()" to get random numbers, and "srand48()"
-   to set the seed to the microsecond part of the system clock.  Works
-   for AIX C++ compiler and runtime.  Might have to change this to port
-   to another environment.
-
    The best way to use this program is to generate multiple words.  Then
    pick one you like and transform it with punctuation, capitalization,
    and other changes to come up with a new password.
@@ -48,8 +43,6 @@ int main (int argc, char ** argv) {
 	long sum;					/* running total of frequencies */
 	char password[100];			/* buffer to develop a password */
 	int nchar;					/* number of chars in password so far */
-	struct timeval systime;		/* time reading for random seed */
-	struct timezone tz;			/* unused arg to gettimeofday */
 
 	password_length = 8;		/* Default value for password length */
 	n_passwords = 10;			/* Default value for number of pws to generate */
